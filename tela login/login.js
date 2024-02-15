@@ -20,11 +20,12 @@ async function validarLogin(){
         listUsers.forEach((user)=>{
             if(nome===user.nome&&senha===user.senha){
                 alert('Usuário encontrado com sucesso!')
-                return true
+                window.location.href = '../tela home/index.html'
+            }else{
+                alert('Usuário não encontrado!')
             }
         })
-        alert('Usuário não encontrado!')
-        return false
+        
 
     }catch(error){
         alert('Erro ao acessar a API')
