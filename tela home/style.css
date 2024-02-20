@@ -33,6 +33,20 @@ main{
     gap: 20px;
 }
 
+.none{
+    display: none;
+}
+
+.card img{
+    width: 30px;
+    position: absolute;
+    cursor: pointer;
+}
+
+.excluir{
+    margin-top: 50px;
+}
+
 .cards{
     display: inline-flex;
     width: 80%;

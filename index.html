@@ -6,8 +6,8 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="style.css">
-    <script src="./main.js"></script>
+    <link rel="stylesheet" href="login.css">
+    <script src="login.js" defer></script>
     <title>Cadastro</title>
 </head>
 <body>
@@ -16,8 +16,7 @@
     </header>
     <main>
         <div class="container">
-            <h1>Cadastrar</h1>
-
+            <h1>Login</h1>
             <div class="inputs">
                 <div class="cadastro">
                     
@@ -25,28 +24,14 @@
                 </div>
                 <div class="cadastro">
                     
-                    <input type="text" name="" id="email" placeholder="Email">
-                </div>
-                <div class="cadastro">
-                    
                     <input type="password" name="" id="senha" placeholder="Senha">
                 </div>
+                <div class="cadastro">
+                </div>
             </div>
-
             <div class="botoes">
-                <a href="./tela inicial/telaInicial.html">
-                    <div class="botao" id="btnCriarConta">
-                        <p>Criar Conta</p>
-                    </div>
-                </a>
-                </a>
-                <a href="">
-                    <div class="botao">
-                        <p>Já possuo uma conta</p>
-                    </div>
-                </a>
+                <button onclick="validarLogin()">Entrar</button>
             </div>
-
         </div>
     </main>
 </body>

@@ -1,9 +1,14 @@
-
-
 async function validarLogin(){
 
     const nome=document.getElementById('nome').value
     const senha=document.getElementById('senha').value
+
+    if(nome=='João da Silva')
+        localStorage.setItem("id", 1)
+    else if(nome=='Maria Salvagni')
+        localStorage.setItem("id", 2)
+    else if(nome=='Gabriel Pereira')
+        localStorage.setItem("id", 3)
 
     console.log(nome)
 
