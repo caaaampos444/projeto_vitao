@@ -22,14 +22,19 @@ async function validarLogin(){
 
         const listUsers=await users.json()
 
+        let validaUsuario=false
+
         listUsers.forEach((user)=>{
             if(nome===user.nome&&senha===user.senha){
                 alert('Usuário encontrado com sucesso!')
                 window.location.href = '../tela home/index.html'
-            }else{
-                alert('Usuário não encontrado!')
+                validaUsuario=true
             }
-        })
+        }) 
+
+        if(!validaUsuario){
+            alert('Usuário não encontrado.')
+        }
         
 
     }catch(error){
