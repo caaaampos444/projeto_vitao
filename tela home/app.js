@@ -15,11 +15,14 @@ async function getTarefas() {
 
     const listTarefas = await responseTarefas.json()
 
-    listTarefas.forEach((tarefa) => {
+    listTarefas.forEach(async(tarefa) => {
 
 
         const container = document.createElement('div');
 
+        let idUserTask= tarefa.idUsuario
+
+        let nomeUsuario=await validarUsuario(idUserTask)
 
         container.className = 'card';
 
@@ -28,49 +31,33 @@ async function getTarefas() {
                 <h2>${tarefa.descrição}</h2>
                 <p>${tarefa.dataConclusão}</p>
                 <p class="id">ID: ${tarefa.id}</p>
-                <p class="user">Usuário: ${tarefa.idUsuario}</p>
+                <p class="user">Usuário: ${nomeUsuario}</p>
+                <button class="comentarios" onclick="getComentarios(${tarefa.id})">Comentar</button>
             `
 
-        getComentarios(tarefa.id)
-
+        // getComentarios(tarefa.id)
+    
         containerCards.appendChild(container)
     })
 
 
 }
 
-async function getComentarios(idTarefa) {
-    let url = `http://localhost:5080/comentarios`
-
-    const responseComentarios = await fetch(url)
-
-    const listComentarios = await responseComentarios.json()
-
-
-    listComentarios.forEach(element => {
-
-
-        if (element.idTarefa == idTarefa) {
-            console.log(element.comentario)
-            let teste = document.createElement('p')
-            let titulo = document.createElement('p')
-            titulo.textContent = 'Comentários:'
-            teste.textContent = `Usuário: ${element.idUsuario} | Comentário: ${element.comentario}`
-            titulo.classList.add('comentarioT')
-            container.appendChild(titulo)
-            container.appendChild(teste)
-
-        }
-
-
-    })
-
-    // containerCards.appendChild(container)
-    // container.appendChild(containerComentarios)
+async function getComentarios(idTarefa){
+    const idTask=idTarefa
+    localStorage.setItem('idTask',idTask)
+    window.location.href='../tela comentarios/comentarios.html'
 }
 
 window.onload = () => {
     getTarefas()
+}
+
+async function validarUsuario(id){
+    const url=`http://localhost:5080/usuario/${id}`
+    const objUser=await fetch(url)
+    const user=await objUser.json()
+    return user.nome
 }
 
 async function editarTarefas() {

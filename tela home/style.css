@@ -32,10 +32,12 @@ main{
     display: flex;
     flex-direction: column;
     gap: 20px;
+    align-items: center;
 }
 
 .id{
     position: absolute;
+    align-self: start;
 }
 
 .comentarioT{
@@ -44,7 +46,7 @@ main{
 
 .user{
     position: absolute;
-    justify-self: end;
+    align-self: start;
     padding-top: 30px;
 }
 
@@ -84,4 +86,9 @@ header{
 button{
     width: 200px;
     height: 50px;
+}
+
+.comentarios{
+    background-color: transparent;
+    cursor: pointer;
 }
